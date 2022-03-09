@@ -91,9 +91,9 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
           package: WalletConnectProvider,
           options: {
             rpc: {
-              250: getMainnetURI(),
+              43114: getMainnetURI(),
               1337: "http://localhost:8545",
-              4002: "https://rpc.testnet.fantom.network"
+              43113: "https://api.avax-test.network/ext/bc/C/rpc"
             },
           },
         },
@@ -140,7 +140,7 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
     if (chainID !== otherChainID) {
       console.warn("You are switching networks");
       console.log("chainId: ", otherChainID);
-      if (otherChainID === 250) {
+      if (otherChainID === 43114) {
         setChainID(otherChainID);
         setUri(getMainnetURI());
         return true;
@@ -151,9 +151,9 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
         setUri("http://localhost:8545");
         return true;
       }
-      else if (otherChainID === 4002) {
+      else if (otherChainID === 43113) {
         setChainID(otherChainID);
-        setUri("http://https://rpc.testnet.fantom.network");
+        setUri("https://api.avax-test.network/ext/bc/C/rpc");
         return true;
       }
       return false;
@@ -179,8 +179,8 @@ export const Web3ContextProvider: React.FC<{ children: ReactElement }> = ({ chil
     const connectedAddress = await connectedProvider.getSigner().getAddress();
     const validNetwork = _checkNetwork(chainId);
     if (!validNetwork) {
-      window.alert("Wrong network, please switch to fantom");
-      console.error("Wrong network, please switch to fantom");
+      window.alert("Wrong network, please switch to Avalanche");
+      console.error("Wrong network, please switch to Avalanche");
       error("Please connect your wallet!");
       return;
     }

@@ -4,13 +4,12 @@ import { Box, Button, Typography, Paper, Divider, Link, Grid } from "@material-u
 import { useAddress, useWeb3Context } from "src/hooks/web3Context";
 import logo from "./logo.png";
 import title from "./title.png";
-import { abi as vnoSale } from "../../abi/VNOSale.json";
-import { abi as daiABI } from "../../abi/DAI.json";
+import { abi as BollingerSale } from "../../abi/BollingerSale";
 import { info } from "../../slices/MessagesSlice";
 
-const devAddress = "0xaF9Ce5fbC97cdA0B3287d1043Dfba36edE47bBc3";
-const lbeAddress = "0xD8a7F51eF8a4c7011166D5fABcf4f751d084b7a7";
-const daiAddress = "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E";
+// const devAddress = "0x1f8b1b4f91ca1c06512fa23bc3e0a37930e5811d";
+const devAddress = "0x7889D01396c93cC8e4E5dC69ec730a8D3057A18C";
+const lbeAddress = "0x1B5A2141AC6B6543d585Cf2F955956aB02A16fBc";
 
 let timeInterval;
 
@@ -20,10 +19,9 @@ function ConnectMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [isConnected, setConnected] = useState(connected);
   const [startStatus, setStartStatus] = useState(false);
-  const [approveStatus, setApproveStatus] = useState(false);
   const [depositStatus, setDepositStatus] = useState(false);
   const [claimStatus, setClaimStatus] = useState(false);
-  const [totalLeft, setTotalLeft] = useState(600);
+  const [totalLeft, setTotalLeft] = useState(300);
 
   let buttonText = "Connect Wallet";
   let clickFunc = connect;
@@ -39,21 +37,10 @@ function ConnectMenu() {
     setConnected(connected);
   }, [web3, connected]);
 
-  const handleApprove = async () => {
-    const daiContract = new ethers.Contract(daiAddress, daiABI, provider.getSigner());
-    try {
-      const res = await daiContract.approve(lbeAddress, "500000000000000000000");
-      if (res) window.alert("approve success");
-      else window.alert("approve failed");
-    } catch (err) {
-      console.log("err:", err);
-    }
-  };
-
   const handleDeposit = async () => {
-    const lbeContract = new ethers.Contract(lbeAddress, vnoSale, provider.getSigner());
+    const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
     try {
-      const res = await lbeContract.deposite();
+      const res = await lbeContract.deposite({value: "2221000000000000000"});
       console.log("res:", res);
       window.alert("deposite success");
     } catch (err) {
@@ -62,17 +49,27 @@ function ConnectMenu() {
   };
 
   const handleClaim = async () => {
-    const lbeContract = new ethers.Contract(lbeAddress, vnoSale, provider.getSigner());
+    const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
     try {
       await lbeContract.claim();
-      window.alert("deposite success");
+      window.alert("Claim success");
+    } catch (err) {
+      console.log("err:", err);
+    }
+  };
+
+  const handleWithDraw = async () => {
+    const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
+    try {
+      await lbeContract.withDraw();
+      window.alert("Withdraw success");
     } catch (err) {
       console.log("err:", err);
     }
   };
 
   const handleStart = async () => {
-    const lbeContract = new ethers.Contract(lbeAddress, vnoSale, provider.getSigner());
+    const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
     try {
       await lbeContract.setStart();
       window.alert("Liquidity Bootstrap Event started");
@@ -82,7 +79,7 @@ function ConnectMenu() {
   };
 
   const handleEnd = async () => {
-    const lbeContract = new ethers.Contract(lbeAddress, vnoSale, provider.getSigner());
+    const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
     try {
       await lbeContract.endStart();
       window.alert("Liquidity Bootstrap Event finished");
@@ -93,46 +90,38 @@ function ConnectMenu() {
 
   const app = async () => {
     console.log("data fetch");
-    const lbeContract = new ethers.Contract(lbeAddress, vnoSale, provider.getSigner());
-    const daiContract = new ethers.Contract(daiAddress, daiABI, provider.getSigner());
+    const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
     try {
       const left = await lbeContract.left_elements();
       const res = await lbeContract.getStatus();
-      const appSta = await daiContract.allowance(address, lbeAddress);
       const addSta = await lbeContract.getAddressStatus();
       setStartStatus(res);
       setTotalLeft(Number(left));
+      console.log("left", Number(left));
+      console.log("res", res);
+      console.log("addSta", addSta);
       if (Number(left) === 0) {
         if(addSta === 1) {
-          setApproveStatus(true);
           setDepositStatus(true);
           setClaimStatus(false);
         }
         else {
-          setApproveStatus(true);
+
           setDepositStatus(true);
           setClaimStatus(true);
         }
       } else {
         if (!res) {
-          setApproveStatus(true);
           setDepositStatus(true);
           setClaimStatus(true);
         } else {
-          if (Number(appSta) > 0) {
-            setApproveStatus(true);
+           if (addSta === 0) {
             setDepositStatus(false);
             setClaimStatus(true);
-          } else if (addSta === 0) {
-            setApproveStatus(false);
-            setDepositStatus(true);
-            setClaimStatus(true);
           } else if (addSta === 1) {
-            setApproveStatus(true);
             setDepositStatus(true);
             setClaimStatus(false);
           } else {
-            setApproveStatus(true);
             setDepositStatus(true);
             setClaimStatus(true);
           }
@@ -142,7 +131,7 @@ function ConnectMenu() {
       console.log("error: ", err);
       // window.alert("Error occured");
     }
-  };
+  };   
 
   useEffect(() => {
     if (connected) {
@@ -156,7 +145,6 @@ function ConnectMenu() {
           app();
         }, 2000);
     } else {
-      setApproveStatus(true);
       setDepositStatus(true);
       setClaimStatus(true);
     }
@@ -176,9 +164,9 @@ function ConnectMenu() {
         justifyContent="flex-end"
         sx={{ width: "100%", height: "60px", backgroundColor: "white", paddingRight: "70px" }}
       >
-        <Box sx={{ position: "absolute", left: "50px" }}>
+        {/* <Box sx={{ position: "absolute", left: "50px" }}>
           <img src={logo} alt="Logo" style={{ width: "50px", height: "50px" }} />
-        </Box>
+        </Box> */}
         {address === devAddress && (
           <Box display="flex" alignItems="center" justifyContent="space-around" marginRight={5}>
             <Button
@@ -212,6 +200,21 @@ function ConnectMenu() {
             >
               End
             </Button>
+            <Button
+              variant="contained"
+              color="success"
+              size="large"
+              disabled={!startStatus}
+              style={{
+                backgroundColor: startStatus ? "#333333" : "#dddddd",
+                borderRadius: "20px",
+                color: "white",
+                width: "160px",
+              }}
+              onClick={handleWithDraw}
+            >
+              WithDraw
+            </Button>
           </Box>
         )}
         <Box sx={{ marginRight: "20px" }}>
@@ -236,20 +239,7 @@ function ConnectMenu() {
             <img src={title} alt="Title" style={{ height: "250px" }} />
           </Box>
           <Box marginTop={6} display="flex" justifyContent="space-around">
-            <Button
-              variant="contained"
-              color="success"
-              disabled={approveStatus}
-              style={{
-                backgroundColor: approveStatus ? "#dddddd" : "#001bc8",
-                borderRadius: "20px",
-                color: "white",
-                width: "150px",
-              }}
-              onClick={handleApprove}
-            >
-              Approve DAI
-            </Button>
+
             <Button
               variant="contained"
               color="success"
