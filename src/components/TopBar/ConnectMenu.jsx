@@ -7,8 +7,7 @@ import title from "./title.png";
 import { abi as BollingerSale } from "../../abi/BollingerSale";
 import { info } from "../../slices/MessagesSlice";
 
-// const devAddress = "0x1f8b1b4f91ca1c06512fa23bc3e0a37930e5811d";
-const devAddress = "0x7889D01396c93cC8e4E5dC69ec730a8D3057A18C";
+const devAddress = "0x1f8b1b4f91ca1c06512fa23bc3e0a37930e5811d";
 const lbeAddress = "0x1B5A2141AC6B6543d585Cf2F955956aB02A16fBc";
 
 let timeInterval;
@@ -35,7 +34,7 @@ function ConnectMenu() {
 
   useEffect(() => {
     setConnected(connected);
-  }, [web3, connected]);
+  }, [connected]);
 
   const handleDeposit = async () => {
     const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
