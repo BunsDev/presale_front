@@ -1,21 +1,23 @@
 {
   "abi":[
     {
+      "inputs": [],
+      "name": "claim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "inputs": [
         {
           "internalType": "address",
-          "name": "_farmingToken",
+          "name": "_nativeToken",
           "type": "address"
         },
         {
           "internalType": "address",
           "name": "_dev",
           "type": "address"
-        },
-        {
-          "internalType": "uint256",
-          "name": "_total",
-          "type": "uint256"
         }
       ],
       "stateMutability": "nonpayable",
@@ -34,6 +36,34 @@
       "type": "event"
     },
     {
+      "inputs": [],
+      "name": "deposite",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "endStart",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "setStart",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withDraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "anonymous": false,
       "inputs": [
         {
@@ -48,20 +78,7 @@
     },
     {
       "inputs": [],
-      "name": "PRICE",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "baseToken",
+      "name": "AVAX_USDT",
       "outputs": [
         {
           "internalType": "address",
@@ -73,10 +90,22 @@
       "type": "function"
     },
     {
-      "inputs": [],
-      "name": "claim",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "boughtAmount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -100,34 +129,7 @@
     },
     {
       "inputs": [],
-      "name": "deposite",
-      "outputs": [],
-      "stateMutability": "payable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
       "name": "dev",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "endStart",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "farmingToken",
       "outputs": [
         {
           "internalType": "address",
@@ -154,6 +156,19 @@
     {
       "inputs": [],
       "name": "getCurrentTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getPrice",
       "outputs": [
         {
           "internalType": "uint256",
@@ -198,12 +213,12 @@
     },
     {
       "inputs": [],
-      "name": "left_elements",
+      "name": "nativeToken",
       "outputs": [
         {
-          "internalType": "uint256",
+          "internalType": "address",
           "name": "",
-          "type": "uint256"
+          "type": "address"
         }
       ],
       "stateMutability": "view",
@@ -211,19 +226,12 @@
     },
     {
       "inputs": [],
-      "name": "setStart",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "tokenAmount",
+      "name": "USDTA",
       "outputs": [
         {
-          "internalType": "uint256",
+          "internalType": "address",
           "name": "",
-          "type": "uint256"
+          "type": "address"
         }
       ],
       "stateMutability": "view",
@@ -231,9 +239,15 @@
     },
     {
       "inputs": [],
-      "name": "withDraw",
-      "outputs": [],
-      "stateMutability": "nonpayable",
+      "name": "WAVAX",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     }
   ]

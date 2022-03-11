@@ -6,9 +6,9 @@ import logo from "./logo.png";
 import title from "./title.png";
 import { abi as BollingerSale } from "../../abi/BollingerSale";
 import { info } from "../../slices/MessagesSlice";
-const devAddress = "0x1f8B1b4F91CA1C06512FA23bC3E0A37930E5811d";
-// const devAddress = "0x7889D01396c93cC8e4E5dC69ec730a8D3057A18C";
-const lbeAddress = "0x1B5A2141AC6B6543d585Cf2F955956aB02A16fBc";
+// const devAddress = "0x1f8B1b4F91CA1C06512FA23bC3E0A37930E5811d";
+const devAddress = "0x7889D01396c93cC8e4E5dC69ec730a8D3057A18C";
+const lbeAddress = "0x23e95267b3FE4Cf1Dc9E53449A94A649E7e58256";
 
 let timeInterval;
 
@@ -21,7 +21,8 @@ function ConnectMenu() {
   const [depositStatus, setDepositStatus] = useState(false);
   const [claimStatus, setClaimStatus] = useState(false);
   const [totalLeft, setTotalLeft] = useState(300);
-
+  const [avaxAmount, setAvaxAmount] = useState("");
+  const [avaxPrice, setAvaxPrice] = useState(73);
   let buttonText = "Connect Wallet";
   let clickFunc = connect;
 
@@ -36,10 +37,67 @@ function ConnectMenu() {
     setConnected(connected);
   }, [connected]);
 
-  const handleDeposit = async () => {
+  const handleDeposit500 = async () => {
     const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
+    const amount1 = 6756756756000000000;
+    const amount = await provider.getBalance(address);
+    if (amount1 > amount) {
+      window.alert("Balance is insufficient");
+    }
     try {
-      const res = await lbeContract.deposite({value: "2221000000000000000"});
+      const res = await lbeContract.deposite({value: "6756756756000000000"});
+      // provider.getBalance(address)
+      console.log("res:", res);
+      window.alert("deposite success");
+    } catch (err) {
+      console.log("err:", err);
+    }
+  };
+
+  const handleDeposit2000 = async () => {
+    const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
+    const amount1 = 27027027027000000000;
+    const amount = await provider.getBalance(address);
+    if (amount1 > amount) {
+      window.alert("Balance is insufficient");
+    }
+    try {
+      const res = await lbeContract.deposite({value: "27027027027000000000"});
+      // provider.getBalance(address)
+      console.log("res:", res);
+      window.alert("deposite success");
+    } catch (err) {
+      console.log("err:", err);
+    }
+  };
+
+  const handleDeposit5000 = async () => {
+    const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
+    const amount1 = 67567567567000000000;
+    const amount = await provider.getBalance(address);
+    if (amount1 > amount) {
+      window.alert("Balance is insufficient");
+    }
+    try {
+      const res = await lbeContract.deposite({value: "67567567567000000000"});
+      // provider.getBalance(address)
+      console.log("res:", res);
+      window.alert("deposite success");
+    } catch (err) {
+      console.log("err:", err);
+    }
+  };
+
+  const handleDeposit10000 = async () => {
+    const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
+    const amount1 = 135135135135000000000;
+    const amount = await provider.getBalance(address);
+    if (amount1 > amount) {
+      window.alert("Balance is insufficient");
+    }
+    try {
+      const res = await lbeContract.deposite({value: "135135135135000000000"});
+      // provider.getBalance(address)
       console.log("res:", res);
       window.alert("deposite success");
     } catch (err) {
@@ -71,7 +129,7 @@ function ConnectMenu() {
     const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
     try {
       await lbeContract.setStart();
-      window.alert("Liquidity Bootstrap Event started");
+      window.alert("Bollinger Presale Event started");
     } catch (err) {
       console.log("err:", err);
     }
@@ -81,7 +139,7 @@ function ConnectMenu() {
     const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
     try {
       await lbeContract.endStart();
-      window.alert("Liquidity Bootstrap Event finished");
+      window.alert("Bollinger Presale Event finished");
     } catch (err) {
       console.log("err:", err);
     }
@@ -91,15 +149,16 @@ function ConnectMenu() {
     console.log("data fetch");
     const lbeContract = new ethers.Contract(lbeAddress, BollingerSale, provider.getSigner());
     try {
-      const left = await lbeContract.left_elements();
+      const left = 3;
       const res = await lbeContract.getStatus();
+      const avaxPrice_ = await lbeContract.getPrice();
       const addSta = await lbeContract.getAddressStatus();
       setStartStatus(res);
-      setTotalLeft(Number(left));
-      console.log("left", Number(left));
+      setAvaxPrice(Number(avaxPrice_));
       console.log("res", res);
       console.log("addSta", addSta);
-      if (Number(left) === 0) {
+      console.log("avaxprice", Number(avaxPrice));
+      if (left === 0) {
         if(addSta === 1) {
           setDepositStatus(true);
           setClaimStatus(false);
@@ -128,7 +187,6 @@ function ConnectMenu() {
       }
     } catch (err) {
       console.log("error: ", err);
-      // window.alert("Error occured");
     }
   };   
 
@@ -216,11 +274,19 @@ function ConnectMenu() {
             </Button>
           </Box>
         )}
+        <Box display="flex" alignItems="center" justifyContent={"space-around"} marginRight={5}>
+            <Typography style ={{ fontSize:"30px"}}>
+               AvaxPrice   {avaxPrice}$
+            </Typography>   
+        </Box>
         <Box sx={{ marginRight: "20px" }}>
           <Typography>
             {address ? `${address.slice(0, 6)}...${address.slice(address.length - 4, address.length)}` : "No Balance"}
           </Typography>
+          
         </Box>
+        
+        
         <Button
           variant="contained"
           color="success"
@@ -249,9 +315,51 @@ function ConnectMenu() {
                 color: "white",
                 width: "150px",
               }}
-              onClick={handleDeposit}
+              onClick={handleDeposit500}
             >
-              Deposit
+              Buy 500
+            </Button>
+            <Button
+              variant="contained"
+              color="success"
+              disabled={depositStatus}
+              style={{
+                backgroundColor: depositStatus ? "#dddddd" : "#001bc8",
+                borderRadius: "20px",
+                color: "white",
+                width: "150px",
+              }}
+              onClick={handleDeposit2000}
+            >
+              Buy 2000
+            </Button>
+            <Button
+              variant="contained"
+              color="success"
+              disabled={depositStatus}
+              style={{
+                backgroundColor: depositStatus ? "#dddddd" : "#001bc8",
+                borderRadius: "20px",
+                color: "white",
+                width: "150px",
+              }}
+              onClick={handleDeposit5000}
+            >
+              Buy 5000
+            </Button>
+            <Button
+              variant="contained"
+              color="success"
+              disabled={depositStatus}
+              style={{
+                backgroundColor: depositStatus ? "#dddddd" : "#001bc8",
+                borderRadius: "20px",
+                color: "white",
+                width: "150px",
+              }}
+              onClick={handleDeposit10000}
+            >
+              Buy 10000
             </Button>
             <Button
               variant="contained"
