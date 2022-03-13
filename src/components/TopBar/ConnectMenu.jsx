@@ -306,7 +306,7 @@ function ConnectMenu() {
           {totalLeft === 0 && <Typography style={{color: "red"}} variant="h1">Sold Out</Typography>}
             <img src={title} alt="Title" style={{ height: "250px" }} />
           </Box> */}
-          <Box marginTop={5}>
+          <Box marginTop={15}>
             <Typography style={{fontSize: "60px", color:"White"}}>
               Bollinger Presale Event
             </Typography>
