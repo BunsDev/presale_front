@@ -13,7 +13,7 @@ body,
   font-family: "Square";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  overflow-y:scroll;
 }
 
 body {
@@ -30,7 +30,7 @@ body {
   z-index: 1;
   background-size: cover;
   font-family: "Square";
-  overflow: hidden;
+  overflow: scroll;
   transition: all ease 0.33ms;
 }
 

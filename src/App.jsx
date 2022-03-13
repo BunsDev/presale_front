@@ -52,8 +52,8 @@ function App() {
 
   return (
     <ThemeProvider theme={lightTheme}>
-      <CssBaseline />
-      <ConnectMenu />
+      <CssBaseline style={{position: "fixed", top:"0"}}/>
+      <ConnectMenu/>
     </ThemeProvider>
   );
 }

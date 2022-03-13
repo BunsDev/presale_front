@@ -219,7 +219,7 @@ function ConnectMenu() {
         display="flex"
         alignItems="center"
         justifyContent="flex-end"
-        sx={{ width: "100%", height: "60px", backgroundColor: "white", paddingRight: "70px" }}
+        sx={{ width: "100%", height: "60px", backgroundColor: "white", paddingRight: "70px", position:"fixed", top:"0px" }}
       >
         <Box sx={{ position: "absolute", left: "50px" }}>
           <img src={logo} alt="Logo" style={{ width: "150px", height: "50px" }} />
@@ -289,9 +289,7 @@ function ConnectMenu() {
             {address ? `${address.slice(0, 6)}...${address.slice(address.length - 4, address.length)}` : "No Balance"}
           </Typography>
           
-        </Box>
-        
-        
+        </Box>              
         <Button
           variant="contained"
           color="success"
@@ -302,7 +300,7 @@ function ConnectMenu() {
           {buttonText}
         </Button>
       </Box>
-      <Grid container justifyContent="center" alignItems="center">
+      <Grid container justifyContent="center" alignItems="center" style={{overflowY:"scroll"}}>
         <Grid item xs={12} sm={8} md={6} style={{ textAlign: "center" }}>
           {/* <Box marginTop={10}>
           {totalLeft === 0 && <Typography style={{color: "red"}} variant="h1">Sold Out</Typography>}
@@ -415,6 +413,212 @@ function ConnectMenu() {
             Automatic Staking and Compounding in Your Wallet!
             </Typography>
           </Box>
+          <Box marginTop={10}>
+            <Typography style = {{fontSize: "60px", color: "White", textAlign:"left"}} marginBottom={2}>
+              Bollinger Auto-Staking Protocol
+            </Typography>
+          </Box>
+
+          
+        </Grid>
+
+      </Grid>
+      <Grid container justifyContent="center" alignItems="center" style={{overflowY:"scroll"}}>
+        <Grid item xs={12} sm={8} md={6} style={{ textAlign: "center" }} >
+          <Box marginTop={5}  marginBottom={2} paddingLeft={30}>
+            <Typography style = {{fontSize: "30px", color: "White", textAlign:"left"}}>
+                ABOUT
+            </Typography>
+          </Box>
+          <Box paddingLeft={30}>
+            <Typography style = {{fontSize: "20px", color: "White", textAlign:"left"}}>
+              Bollinger provides a decentralized financial asset which rewards
+              users with a sustainable fixed compound interest model through
+              use of it's unique AAP protocol.
+            </Typography>
+          </Box>
+          <Box paddingLeft={30} marginTop={5}>
+            <Typography style = {{fontSize: "20px", color: "White", textAlign:"left"}}>
+              Bollinger delivers the industry's hightest fixed APY, paid every 15
+              minutes, and a simple buy-hold-earn system that grows your 
+              $BOLLINGER portfolio in your wallet at a lighting fast pace 
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={8} md={6} style={{ textAlign: "center" }} >
+          <Box marginTop={4}  marginBottom={2} paddingLeft={30}>
+            <Typography style = {{fontSize: "40px", color: "White", textAlign:"left"}}>
+                383025.80%
+            </Typography>
+          </Box>
+          <Box marginTop={4}  marginBottom={2} paddingLeft={30}>
+            <Typography style = {{fontSize: "30px", color: "White", textAlign:"left"}}>
+                Fixed Staking APY
+            </Typography>
+          </Box>
+          {/* <Box marginTop={4}  marginBottom={2} paddingLeft={40} backgroundColor={"#dddddd"}>            
+            <Typography backgroundColor={"#dddddd"} style = {{fontSize: "30px", color: "White", textAlign:"left"}}>
+               OpenAPP
+            </Typography>
+          </Box> */}
+
+        </Grid>
+      </Grid>
+      <Grid container justifyContent="center" alignItems="center" style={{overflowY:"scroll"}}>
+        <Box marginTop={10} paddingLeft={15}>
+          <Typography style = {{fontSize: "70px", color: "White"}} marginBottom={2}>
+            "All Bollinger holders are rewarded with automatic compound interest which is paid every 15 minutes."
+          </Typography>
+          
+        </Box>
+        <Box marginTop={30} paddingLeft={15}>
+          <Typography style = {{fontSize: "50px", color: "White"}} marginBottom={2}>
+            How much can I earn ?
+          </Typography>
+          
+        </Box>
+      </Grid>
+      <Grid container justifyContent="center" alignItems="center" style={{overflowY:"scroll"}}>
+        <Grid item xs={12} sm={8} md={6} style={{ textAlign: "center" }} >
+          <Box marginTop={5}  marginBottom={2} paddingLeft={30}>
+            <Typography style = {{fontSize: "30px", color: "White"}}>
+                At the end of the 
+            </Typography>
+          </Box>
+          <Box marginTop={5}  marginBottom={2} paddingLeft={30}>
+            <Typography style = {{fontSize: "30px", color: "White"}}>
+                year and with
+            </Typography>
+          </Box>
+          <Box marginTop={5}  marginBottom={2} paddingLeft={30}>
+            <Typography style = {{fontSize: "30px", color: "White"}}>
+                $ 1000 USD of             
+            </Typography>
+          </Box>
+          <Box marginTop={5}  marginBottom={2} paddingLeft={30}>
+            <Typography style = {{fontSize: "30px", color: "White"}}>
+                $Bollinger invested
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} sm={8} md={6} style={{ textAlign: "center" }} >
+          <Box marginTop={5}  marginBottom={2} paddingLeft={30}>
+            <Typography style = {{fontSize: "30px", color: "White"}}>
+                You can earn up to
+            </Typography>
+          </Box>
+          <Box marginTop={5}  marginBottom={2} paddingLeft={30}>
+            <Typography style = {{fontSize: "30px", color: "White"}}>
+                $3,830,454.12 USD of
+            </Typography>
+          </Box>
+          <Box marginTop={5}  marginBottom={2} paddingLeft={30}>
+            <Typography style = {{fontSize: "30px", color: "White"}}>
+                $Bollinger at 383,025.80%             
+            </Typography>
+          </Box>
+          <Box marginTop={5}  marginBottom={2} paddingLeft={30}>
+            <Typography style = {{fontSize: "30px", color: "White"}}>
+                APY*
+            </Typography>
+          </Box>
+        </Grid>
+      </Grid>
+      <Grid container justifyContent="center" alignItems="center" style={{overflowY:"scroll"}}>
+        <Box marginTop={10} paddingLeft={15}>
+          <Typography style = {{fontSize: "60px", color: "White"}} marginBottom={2}>
+            Tokenomics
+          </Typography>
+          
+        </Box>
+      </Grid>
+      <Grid container justifyContent="center" alignItems="center" style={{overflowY:"scroll"}}>
+        <Grid item xs={12} sm={8} md={6} style={{ textAlign: "center"  }} >
+          <Box marginTop={3}  marginBottom={2} paddingRight={5}>
+            <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" , textAlign:"right"}}>
+                Buy
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingRight={5}>
+            <Typography style = {{fontSize: "20px", color: "White",  textAlign:"right"}}>
+                14% Slippage
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingRight={5}>
+            <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" , textAlign:"right"}}>
+                Automatic LP
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingRight={5}>
+            <Typography style = {{fontSize: "20px", color: "White",  textAlign:"right"}}>
+                4% of order fees return to liquidity
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingRight={5}>
+            <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" , textAlign:"right"}}>
+               Bollinger Insurance Fund
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingRight={5}>
+            <Typography style = {{fontSize: "20px", color: "White",  textAlign:"right"}}>
+                5% of order fees are stored in AIF
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingRight={5}>
+            <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" , textAlign:"right"}}>
+                Treasury
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingRight={5}>
+            <Typography style = {{fontSize: "20px", color: "White",  textAlign:"right"}}>
+                2.5% of order fees go to the treasury
+            </Typography>
+          </Box>
+          
+          
+        </Grid>
+        <Grid item xs={12} sm={8} md={6} style={{ textAlign: "center"  }} >
+          <Box marginTop={3}  marginBottom={2} paddingLeft={5} >
+            <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" , textAlign:"left"}}>
+                Sell
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingLeft={5} >
+            <Typography style = {{fontSize: "20px", color: "White",  textAlign:"left"}}>
+                16% Slippage
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingLeft={5} >
+            <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" , textAlign:"left"}}>
+            Automatic LP
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingLeft={5} >
+            <Typography style = {{fontSize: "20px", color: "White",  textAlign:"left"}}>
+            4% of order fees return to liquidity
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingLeft={5} >
+            <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" , textAlign:"left"}}>
+            Bollinger Insurance Fund
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingLeft={5} >
+            <Typography style = {{fontSize: "20px", color: "White",  textAlign:"left"}}>
+            5% of order fees are stored in AIF
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingLeft={5} >
+            <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" , textAlign:"left"}}>
+            Treasury
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingLeft={5} >
+            <Typography style = {{fontSize: "20px", color: "White",  textAlign:"left"}}>
+            2.5% of order fees go to the treasury
+            </Typography>
+          </Box>
+          
         </Grid>
       </Grid>
     </>
