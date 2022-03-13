@@ -221,9 +221,9 @@ function ConnectMenu() {
         justifyContent="flex-end"
         sx={{ width: "100%", height: "60px", backgroundColor: "white", paddingRight: "70px" }}
       >
-        {/* <Box sx={{ position: "absolute", left: "50px" }}>
-          <img src={logo} alt="Logo" style={{ width: "50px", height: "50px" }} />
-        </Box> */}
+        <Box sx={{ position: "absolute", left: "50px" }}>
+          <img src={logo} alt="Logo" style={{ width: "150px", height: "50px" }} />
+        </Box>
         {address === devAddress && (
           <Box display="flex" alignItems="center" justifyContent="space-around" marginRight={5}>
             <Button
@@ -232,7 +232,7 @@ function ConnectMenu() {
               size="large"
               disabled={startStatus}
               style={{
-                backgroundColor: startStatus ? "#dddddd" : "#333333",
+                backgroundColor: startStatus ? "#dddddd" : "#0eaed5",
                 borderRadius: "20px",
                 marginRight: "10px",
                 color: "white",
@@ -248,7 +248,7 @@ function ConnectMenu() {
               size="large"
               disabled={!startStatus}
               style={{
-                backgroundColor: startStatus ? "#333333" : "#dddddd",
+                backgroundColor: startStatus ? "#333333" : "#0eaed5",
                 borderRadius: "20px",
                 color: "white",
                 width: "160px",
@@ -263,7 +263,7 @@ function ConnectMenu() {
               size="large"
               disabled={!startStatus}
               style={{
-                backgroundColor: startStatus ? "#333333" : "#dddddd",
+                backgroundColor: startStatus ? "#333333" : "#0eaed5",
                 borderRadius: "20px",
                 color: "white",
                 width: "160px",
@@ -277,6 +277,11 @@ function ConnectMenu() {
         <Box display="flex" alignItems="center" justifyContent={"space-around"} marginRight={5}>
             <Typography style ={{ fontSize:"30px"}}>
                AvaxPrice   {avaxPrice}$
+            </Typography>   
+        </Box>
+        <Box display="flex" alignItems="center" justifyContent={"space-around"} marginRight={5}>
+            <Typography style ={{ fontSize:"20px"}}>
+               WHITEPAPER
             </Typography>   
         </Box>
         <Box sx={{ marginRight: "20px" }}>
@@ -299,10 +304,17 @@ function ConnectMenu() {
       </Box>
       <Grid container justifyContent="center" alignItems="center">
         <Grid item xs={12} sm={8} md={6} style={{ textAlign: "center" }}>
-          <Box marginTop={10}>
+          {/* <Box marginTop={10}>
           {totalLeft === 0 && <Typography style={{color: "red"}} variant="h1">Sold Out</Typography>}
             <img src={title} alt="Title" style={{ height: "250px" }} />
+          </Box> */}
+          <Box marginTop={5}>
+            <Typography style={{fontSize: "60px", color:"White"}}>
+              Bollinger Presale Event
+            </Typography>
           </Box>
+          
+          
           <Box marginTop={6} display="flex" justifyContent="space-around">
 
             <Button
@@ -310,21 +322,21 @@ function ConnectMenu() {
               color="success"
               disabled={depositStatus}
               style={{
-                backgroundColor: depositStatus ? "#dddddd" : "#001bc8",
+                backgroundColor: depositStatus ? "#dddddd" : "#0eaed5",
                 borderRadius: "20px",
                 color: "white",
                 width: "150px",
               }}
               onClick={handleDeposit500}
             >
-              Buy 500
+              Buy 500            
             </Button>
             <Button
               variant="contained"
               color="success"
               disabled={depositStatus}
               style={{
-                backgroundColor: depositStatus ? "#dddddd" : "#001bc8",
+                backgroundColor: depositStatus ? "#dddddd" : "#0eaed5",
                 borderRadius: "20px",
                 color: "white",
                 width: "150px",
@@ -338,7 +350,7 @@ function ConnectMenu() {
               color="success"
               disabled={depositStatus}
               style={{
-                backgroundColor: depositStatus ? "#dddddd" : "#001bc8",
+                backgroundColor: depositStatus ? "#dddddd" : "#0eaed5",
                 borderRadius: "20px",
                 color: "white",
                 width: "150px",
@@ -352,7 +364,7 @@ function ConnectMenu() {
               color="success"
               disabled={depositStatus}
               style={{
-                backgroundColor: depositStatus ? "#dddddd" : "#001bc8",
+                backgroundColor: depositStatus ? "#dddddd" : "#0eaed5",
                 borderRadius: "20px",
                 color: "white",
                 width: "150px",
@@ -375,6 +387,33 @@ function ConnectMenu() {
             >
               Claim
             </Button>
+          </Box>
+          <Box marginTop={5} paddingLeft={15}>
+            <Typography style = {{fontSize: "60px", color: "White", textAlign:"left"}} marginBottom={2}>
+              The Highest Paying    
+              Auto-Staking & Auto-
+              Compounding Protocal
+            </Typography>
+          </Box>
+          <Box marginTop={4} paddingLeft={15} >
+            <Typography style= {{fontSize:"30px", textAlign:"left", color: "white" }}>
+              Hightest Fixed APY in Crypto - 383,025.80%
+            </Typography>
+          </Box>
+          <Box marginTop={4} paddingLeft={15}>
+            <Typography style= {{fontSize:"30px", textAlign:"left", color: "white"}}>
+              Low Risk with Bollinger Insurance Fund(BIF)
+            </Typography>
+          </Box>
+          <Box marginTop={4} paddingLeft={15}>
+            <Typography style= {{fontSize:"30px", textAlign:"left", color: "white"}}>
+            Interest Paid Every 15 Minutes: 96 Times Daily!
+            </Typography>
+          </Box>
+          <Box marginTop={4} paddingLeft={15}>
+            <Typography style= {{fontSize:"30px", textAlign:"left", color: "white"}}>
+            Automatic Staking and Compounding in Your Wallet!
+            </Typography>
           </Box>
         </Grid>
       </Grid>
