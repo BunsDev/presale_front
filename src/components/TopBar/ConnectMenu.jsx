@@ -3,6 +3,12 @@ import { ethers } from "ethers";
 import { Box, Button, Typography, Paper, Divider, Link, Grid } from "@material-ui/core";
 import { useAddress, useWeb3Context } from "src/hooks/web3Context";
 import logo from "./logo.png";
+import check from "./check.svg";
+import close from "./close.svg";
+import twitter from "./twitter.png";
+import discord from "./discord.png";
+import github from "./github.png";
+import medium from "./medium.png";
 import title from "./title.png";
 import { abi as BollingerSale } from "../../abi/BollingerSale";
 import { info } from "../../slices/MessagesSlice";
@@ -219,7 +225,9 @@ function ConnectMenu() {
         display="flex"
         alignItems="center"
         justifyContent="flex-end"
-        sx={{ width: "100%", height: "60px", backgroundColor: "white", paddingRight: "70px", position:"fixed", top:"0px" }}
+        paddingRight={5}
+        height={60}
+        sx={{ width: "100%", backgroundColor: "white", position:"fixed", top:"0px" }}
       >
         <Box sx={{ position: "absolute", left: "50px" }}>
           <img src={logo} alt="Logo" style={{ width: "150px", height: "50px" }} />
@@ -574,6 +582,16 @@ function ConnectMenu() {
                 2.5% of order fees go to the treasury
             </Typography>
           </Box>
+          <Box marginTop={3}  marginBottom={2} paddingRight={5}>
+            <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" , textAlign:"right"}}>
+                Fire Pit
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingRight={5}>
+            <Typography style = {{fontSize: "20px", color: "White",  textAlign:"right"}}>
+                2.5% of Bollinger is burnt in the fire pit
+            </Typography>
+          </Box>
           
           
         </Grid>
@@ -615,12 +633,397 @@ function ConnectMenu() {
           </Box>
           <Box marginTop={3}  marginBottom={2} paddingLeft={5} >
             <Typography style = {{fontSize: "20px", color: "White",  textAlign:"left"}}>
-            2.5% of order fees go to the treasury
+              2.5% of order fees go to the treasury
             </Typography>
           </Box>
-          
+          <Box marginTop={3}  marginBottom={2} paddingLeft={5} >
+            <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" , textAlign:"left"}}>
+              Fire Pit
+            </Typography>
+          </Box>
+          <Box marginTop={3}  marginBottom={2} paddingLeft={5} >
+            <Typography style = {{fontSize: "20px", color: "White",  textAlign:"left"}}>
+              2.5% of Bollinger is burnt
+            </Typography>
+          </Box>
         </Grid>
       </Grid>
+      <Grid container justifyContent="center" alignItems="center">
+        <Box marginTop={20}>
+          <Typography style = {{fontSize: "60px", color: "White"}} marginBottom={2}>
+            Competitive Advantages
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid container justifyContent="center" alignItems="center" marginBottom= {15}>
+        <Grid item xs={3} sm ={3} md={3} style={{ textAlign: "center" }}>
+          <Box marginTop={10}>
+            <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" }}>
+              FEATURES
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              APY
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Fees
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Anti-Dump Strategy
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Limited Edition NFT
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Automatic Burn
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Sustainable Rebasing
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Insurance Fund
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Auto-Liquidity
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Auto-Staking
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Fees Hard Coded
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Auto-Staking Hard Coded
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Rug-Proof: No Manual Adjusting
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Rug-Proof: Fixed Rebase Time
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Rug-Proof: Liquidity Locked
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              Manual Token Buyback
+            </Typography>           
+          </Box>
+        </Grid>
+        <Grid item xs={3} sm ={3} md={3} style={{ textAlign: "center" }}>
+          <Box marginTop={10}>
+          <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" }}>
+              Bollinger
+            </Typography>
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              383,025.80%
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              14%/16%
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+              <img src={check} alt="Title"  style={{ height: "18px"}} />           
+          </Box>
+          <Box marginTop={5}>
+
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+          
+          </Box>
+          <Box marginTop={5}>
+
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+         
+          </Box>
+          <Box marginTop={5}>
+
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+          
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+                       
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+                      
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+                      
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+                       
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+                      
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+                     
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+                       
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+                       
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={check} alt="Title" style={{ height: "18px" }} />
+                       
+          </Box>
+        </Grid>
+        <Grid item xs={3} sm ={3} md={3} style={{ textAlign: "center" }}>
+          <Box marginTop={10}>
+          <Typography style = {{ fontWeight:"bold", fontSize: "30px", color: "White" }}>
+              Titano
+            </Typography>
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              102,483.58%
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}>
+              13%/18%
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                     
+          </Box>
+          <Box marginTop={5}>
+           
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                      
+          </Box>
+          <Box marginTop={5}>
+
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+          
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+        </Grid>
+        <Grid item xs={3} sm ={3} md={3} style={{ textAlign: "center" }}>
+          <Box marginTop={10}>
+          <Typography style = {{ fontSize: "30px", color: "White" }}>
+              Libero
+          </Typography>  
+          </Box>
+          <Box marginTop={5}>
+          <Typography style = {{ fontSize: "20px", color: "White" }}> 
+               158,893.59
+          </Typography>             
+          </Box>
+          <Box marginTop={5}>
+            <Typography style = {{ fontSize: "20px", color: "White" }}> 
+              15%/25%
+            </Typography>           
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+          <Box marginTop={5}>
+            
+              <img src={close} alt="Title" style={{ height: "18px" }} />
+                        
+          </Box>
+        </Grid>
+      </Grid>
+      
+      <Grid container justifyContent="center" alignItems="center">
+        <Box marginTop={20}>
+          <Typography style = {{fontSize: "60px", color: "White"}} marginBottom={2}>
+            Social Media
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid container justifyContent="center" alignItems="center" marginBottom= {15}>
+        <Grid item xs={3} sm ={3} md={3} style={{ textAlign: "center" }}>
+        <Box marginTop={15}>
+            
+            <img src={twitter} alt="Title" style={{ height: "90px" }} />
+                      
+        </Box>
+        </Grid>
+        <Grid item xs={3} sm ={3} md={3} style={{ textAlign: "center" }}>
+          <Box marginTop= {15}>
+              
+              <img src={discord} alt="Title" style={{ height: "90px" }} />
+                        
+          </Box>
+        </Grid>
+        <Grid item xs={3} sm ={3} md={3} style={{ textAlign: "center" }}>
+          <Box marginTop={15}>
+            
+            <img src={github} alt="Title" style={{ height: "90px", color:"white" }} />
+                      
+          </Box>
+        </Grid>
+        <Grid item xs={3} sm ={3} md={3} style={{ textAlign: "center" }}>
+          <Box marginTop={15}>
+            
+            <img src={medium} alt="Title" style={{ height: "90px" }} />
+                      
+          </Box>
+        </Grid>
+      </Grid>
+      <Box marginTop = {20}>
+
+      </Box>
     </>
   );
 }

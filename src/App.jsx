@@ -25,7 +25,7 @@ import ConnectMenu from "./components/TopBar/ConnectMenu.jsx";
 import { dark as darkTheme } from "./themes/dark.js";
 import { light as lightTheme } from "./themes/light.js";
 import { girth as gTheme } from "./themes/girth.js";
-import "./style.scss";
+import "./index.css";
 
 function App() {
 
@@ -55,6 +55,7 @@ function App() {
       <CssBaseline style={{position: "fixed", top:"0"}}/>
       <ConnectMenu/>
     </ThemeProvider>
+    
   );
 }
 
